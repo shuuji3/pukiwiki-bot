@@ -1,0 +1,7 @@
+{
+  "dependencies": {
+    "findit2": "^2.2.3",
+    "puppeteer": "1.18.1",
+    "toml": "^3.0.0"
+  }
+}

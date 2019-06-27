@@ -1,0 +1,11 @@
+[pukiwiki]
+wikiUrl = 'https://awesome.web/pukiwiki/'
+baseUrl = 'my-user-page/'
+
+[directory]
+markdown = 'data/markdown/'
+pukiwiki = 'data/pukiwiki/'
+
+[auth]
+password = 'user'
+username = 'password'
