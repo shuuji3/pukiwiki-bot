@@ -43,14 +43,18 @@ function getMarkdownFiles () {
 (async () => {
   const br = await puppeteer.launch({ headless: process.env.PUKIWIKI_BOT_HEADLESS || false })
 
+  console.log(`Publishing...`)
   const mdFiles = await getMarkdownFiles()
   for (const mdFile of mdFiles) {
+    console.log(`* ${mdFile}`)
+
     const pageName = mdFile.replace(config.directory.markdown, '').replace(/\.md$/, '')
     const mdText = fs.readFileSync(mdFile, { encoding: 'utf-8' })
 
     const page = await br.newPage()
     await savePage(page, pageName, mdText)
-  }
 
+  }
+  console.log('Done!')
   await br.close()
 })()
