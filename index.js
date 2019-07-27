@@ -28,6 +28,12 @@ function getMarkdownFiles () {
     finder.on('file', (file, stat, linkPath) => {
       // In case of symlink, use `linkPath` to get a relative path (`file` has an absolute path)
       const markdownFile = linkPath || file
+
+      // Exclude other than .md file
+      if (!markdownFile.endsWith('.md')) {
+        return
+      }
+
       markdownFiles.push(markdownFile)
     })
     finder.on('end', () => resolve(markdownFiles))
